@@ -36,7 +36,7 @@ const insertMovieGenres = (
 ): string => {
   var filtered = genreRows.filter(genreRow => genres.includes(genreRow.genre))
   return `insert into ${MOVIE_GENRES} (movie_id, genre_id) values` +
-  filtered.map(genre => `(${movieId}, ${genre.id})`).join(",")
+  filtered.map(genre => `(${movieId},${genre.id})`).join(",")
 };
 
 const insertMovieActors = (
@@ -46,7 +46,7 @@ const insertMovieActors = (
 ): string => {
   var filtered = actorRows.filter(actorRow => actors.includes(actorRow.full_name))
   return `INSERT INTO ${MOVIE_ACTORS} (movie_id, actor_id) values` +
-  filtered.map(actors => `(${movieId}, ${actors.id})`).join(",");
+  filtered.map(actors => `(${movieId},${actors.id})`).join(",");
 };
 
 const insertMovieDirectors = (
